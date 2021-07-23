@@ -1,0 +1,18 @@
+CREATE TABLE Vendedor (
+  id INT NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(50) NOT NULL,
+  total_Vendas INT,
+  media_Vendas DOUBLE,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE Venda (
+  id INT NOT NULL AUTO_INCREMENT,
+  idVendedor INT NULL,
+  valor DOUBLE NOT NULL,
+  data_Venda DATETIME NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_con_idVendedor FOREIGN KEY (idVendedor) REFERENCES Vendedor (id)
+  ON DELETE CASCADE
+  ON UPDATE NO ACTION
+);
